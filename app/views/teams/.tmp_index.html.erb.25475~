@@ -1,0 +1,21 @@
+<h1>Listing teams</h1>
+
+<table>
+
+<% @groups.each do |group| %>
+  <tr>
+  	<th colspan="2">
+  		Group <%= group.name %>
+  	</th>
+  </tr>
+  <% group.teams.each do |team| %>
+	  <tr>
+	    <td><%=h team.name %></td>
+	  </tr>
+  <% end %>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Back', '/' %>

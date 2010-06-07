@@ -1,0 +1,20 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+        <title>Prode Mundial</title>
+        <%= stylesheet_link_tag 'application' %>
+    </head>
+    <body>
+    	<div class="header">
+    		<a href="/">Home</a>
+            <% if @user %>
+              <a href="/site/logout">Logout</a>
+            <% else %>
+              <a href="/site/login">Login</a>
+			  <a href="/users/new">Register</a>         
+            <% end %>
+        </div>
+    	<%= yield %>
+    </body>
+</html>

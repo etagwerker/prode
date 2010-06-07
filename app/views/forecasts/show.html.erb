@@ -1,0 +1,23 @@
+<p>
+  <b>Game:</b>
+  <%=h @forecast.game_id %>
+</p>
+
+<p>
+  <b>Home goals:</b>
+  <%=h @forecast.home_goals %>
+</p>
+
+<p>
+  <b>Away goals:</b>
+  <%=h @forecast.away_goals %>
+</p>
+
+<p>
+  <b>Result:</b>
+  <%=h @forecast.result %>
+</p>
+
+
+<%= link_to 'Edit', edit_forecast_path(@forecast) %> |
+<%= link_to 'Back', forecasts_path %>

@@ -1,0 +1,24 @@
+<h1>Listing positions</h1>
+
+<table>
+  <tr>
+  	<th>Position</th>
+    <th>Nick</th>
+    <th>Score</th>
+  </tr>
+
+<% position = 1 %>
+
+<% @users.each do |user| %>
+  <tr>
+  	<td><%=h position %></td>
+    <td><%=h user.nick %></td>
+    <td><%=h user.score %></td>
+  </tr>
+  <% position += 1 %>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Back', "/" %>

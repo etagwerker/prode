@@ -1,0 +1,31 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<title>Prode Mundial</title>
+		<%= stylesheet_link_tag 'application' %>
+	</head>
+	<body>
+		<div class="header">
+			<% if @user %>
+	          <a href="/site/logout">Logout</a>
+	        <% else %>
+	          <a href="/site/login">Login</a>         
+	        <% end %>
+	        <a href="/users/new">Register</a>	
+		</div>
+		<div class="content">
+            <h1>Bienvenidos al Prode Mundial</h1>
+        
+	        <h2>Reglas</h2>
+	        
+	        <ol>
+	            <li>Uno elige todos sus pronosticos antes del 7 de junio.</li>
+	            <li>Por cada partido: 1 punto por acierto de resultado parcial.</li>
+	            <li>Por cada partido: 2 puntos por acierto de resultado exacto.</li>
+	            <li>Quien suma mas puntos en la primera fase gana esa etapa.</li>
+	            <li>Esto se repite por cada fase.</li>
+	        </ol>			
+		</div>
+	</body>
+</html>

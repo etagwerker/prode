@@ -1,0 +1,40 @@
+		<div class="content">
+            <h1>Bienvenidos al Prode Mundial</h1>
+        
+	        <h2>Reglas (Generales)</h2>
+	        
+	        <ol>
+	            <li>Por cada partido: 1 punto por acierto de resultado parcial (Por ejemplo: Local, Empate o Visita)</li>
+	            <li>Por cada partido: 2 puntos por acierto de resultado exacto (Por ejemplo: 1-2, 3-0)</li>
+	            <li>Quien suma mas puntos por fase <b>gana</b>!</li>
+				<li>Los pronosticos se pueden cambiar hasta el dia anterior al inicio de la fase</li>
+	        </ol>
+
+            <h2>Reglas (Primera Fase)</h2>
+			
+			<ol>
+			    <li>Uno elige todos sus pronosticos antes del comienzo de la fase.</li>
+				<li>Al inicio del primer partido, el sistema <b>congela</b> los estimados.</li>	
+			</ol>
+			
+            <h2>Reglas (Octavos, Cuartos, Semis y Final)</h2>
+            
+            <ol>
+                <li>Uno elige todos sus pronosticos antes del comienzo de la fase.</li>
+                <li>Al inicio del primer partido, el sistema <b>congela</b> los estimados.</li> 
+            </ol>			
+			
+			<h2>Premios</h2>
+			
+			<p>
+				El primero gana el <b>80%</b> del pozo. El segundo el 20%
+			</p>
+            
+			<div class="actions">
+				<a href="/site/positions">Posiciones</a>
+				<a href="/teams">Equipos</a>
+				<% if @user %>
+				    <a href="/<%= @user.nick %>/forecasts">Mis Pronosticos</a>
+				<% end %>
+			</div>
+		</div>

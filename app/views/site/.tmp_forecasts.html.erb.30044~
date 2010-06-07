@@ -1,0 +1,25 @@
+<h1>Listing forecasts</h1>
+
+<table>
+  <tr>
+  	<th>Date</th>
+    <th>Game</th>
+    <th>Home goals</th>
+    <th>Away goals</th>
+    <th>Result</th>
+  </tr>
+
+<% @forecasts.each do |forecast| %>
+  <tr>
+  	<td><%=h forecast.game.short_datetime %> </td>
+    <td><%=h forecast.game.home_team %> vs. <%= forecast.game.away_team %> </td>
+    <td><%=h forecast.home_goals %></td>
+    <td><%=h forecast.away_goals %></td>
+    <td><%=h forecast.result_label %></td>
+	<td><%= link_to 'Edit', edit_forecast_path(forecast) %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+

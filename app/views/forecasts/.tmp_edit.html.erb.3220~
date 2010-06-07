@@ -1,0 +1,28 @@
+<h1>Editing forecast</h1>
+
+<% form_for(@forecast) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :game_id %><br />
+    <%= f.text_field :game_id %>
+  </p>
+  <p>
+    <%= f.label :home_goals %><br />
+    <%= f.text_field :home_goals %>
+  </p>
+  <p>
+    <%= f.label :away_goals %><br />
+    <%= f.text_field :away_goals %>
+  </p>
+  <p>
+    <%= f.label :result %><br />
+    <%= f.text_field :result %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @forecast %> |
+<%= link_to 'Back', forecasts_path %>

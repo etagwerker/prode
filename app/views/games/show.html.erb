@@ -1,0 +1,28 @@
+<p>
+  <b>Home team:</b>
+  <%=h @game.home_team_id %>
+</p>
+
+<p>
+  <b>Away team:</b>
+  <%=h @game.away_team_id %>
+</p>
+
+<p>
+  <b>Home goals:</b>
+  <%=h @game.home_goals %>
+</p>
+
+<p>
+  <b>Away goals:</b>
+  <%=h @game.away_goals %>
+</p>
+
+<p>
+  <b>Result:</b>
+  <%=h @game.result %>
+</p>
+
+
+<%= link_to 'Edit', edit_game_path(@game) %> |
+<%= link_to 'Back', games_path %>
