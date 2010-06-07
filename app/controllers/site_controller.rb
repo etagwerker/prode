@@ -14,11 +14,13 @@ class SiteController < ApplicationController
   end
   
   def forecasts
-    @user = User.find_by_nick(params[:user])
-    if @user
-      @forecasts = @user.forecasts
+    user = User.find_by_nick(params[:user])
+    if user
+      @forecasts = user.forecasts
       @forecasts = @forecasts.sort { |x,y| x <=> y }
     end
   end
+  
+  
   
 end

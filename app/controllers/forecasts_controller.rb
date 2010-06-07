@@ -40,7 +40,11 @@ class ForecastsController < ApplicationController
   # GET /forecasts/1/edit
   def edit
     @forecast = Forecast.find(params[:id])
-    @game = @forecast.game
+    if @forecast.user.id == @user.id
+      @game = @forecast.game
+    else
+      redirect_to '/'
+    end
   end
 
   # POST /forecasts
@@ -64,16 +68,20 @@ class ForecastsController < ApplicationController
   # PUT /forecasts/1.xml
   def update
     @forecast = Forecast.find(params[:id])
-
-    respond_to do |format|
-      if @forecast.update_attributes(params[:forecast])
-        flash[:notice] = 'Forecast was successfully updated.'
-        format.html { redirect_to("/#{@user.nick}/forecasts") }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @forecast.errors, :status => :unprocessable_entity }
-      end
+    
+    if @forecast.user.id == @user.id
+      respond_to do |format|
+        if @forecast.update_attributes(params[:forecast])
+          flash[:notice] = 'Forecast was successfully updated.'
+          format.html { redirect_to("/#{@user.nick}/forecasts") }
+          format.xml  { head :ok }
+        else
+          format.html { render :action => "edit" }
+          format.xml  { render :xml => @forecast.errors, :status => :unprocessable_entity }
+        end
+      end      
+    else
+      redirect_to '/'
     end
   end
 

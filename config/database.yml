@@ -39,13 +39,15 @@ test: &TEST
 
 production:
   adapter: mysql
-  encoding: utf8
-  reconnect: false
   database: prode_production
+  charset: utf8
+  encoding: utf8
   pool: 5
-  username: root
-  password: 
-  socket: /tmp/mysql.sock
+  username: prode
+  password: pr0de
+  host: 127.0.0.1
+  socket: /var/lib/mysql/mysql.sock
+
   
 cucumber:
   <<: *TEST
