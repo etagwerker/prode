@@ -1,4 +1,10 @@
-<h1>Listing forecasts</h1>
+<% if !logged_in? %>
+<div class="join">
+	<em><%= @nickname %></em> is using <a href="http://wc.etagwerker.com" style="margin-right:0px;">http://wc.etagwerker.com</a> to track World Cup forecasts and play with friends. If you want to play, <a href="http://wc.etagwerker.com/users/new">sign up!</a>
+</div>
+<% end %>
+
+<h1>Forecasts by <em><%= @nickname %></em></h1>
 
 <table>
   <tr>
