@@ -2,7 +2,7 @@ class SiteController < ApplicationController
   layout 'application'
 
   before_filter :load_user
-  before_filter :authenticate, :except => [:index, :logout, :login]
+  before_filter :authenticate, :except => [:index, :logout, :login, :forecasts]
   
   def logout
     reset_session
