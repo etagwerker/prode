@@ -5,7 +5,9 @@ class ApplicationController < ActionController::Base
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
   before_filter :load_user
 
-
+  def encrypt(password)
+    Digest::SHA1.hexdigest(password)[0..39]
+  end
 
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
@@ -38,9 +40,9 @@ class ApplicationController < ActionController::Base
     else
       u = User.new(params[:user])
       if u.nick && u.password
-        @user = User.find_by_nick_and_password(u.nick, u.password)
-        session[USER_ID] = @user.id
+        @user = User.find_by_nick_and_hashed_password(u.nick, encrypt(u.password))
         if @user
+          session[USER_ID] = @user.id
           redirect_to :controller => :site
         else
           @user = User.new    

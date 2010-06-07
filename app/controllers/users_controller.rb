@@ -46,7 +46,8 @@ class UsersController < ApplicationController
   # POST /users.xml
   def create
     @user = User.new(params[:user])
-
+    @user.hashed_password = Digest::SHA1.hexdigest(@user.password)[0..39] 
+    
     respond_to do |format|
       if @user.save
         flash[:notice] = 'User was successfully created.'

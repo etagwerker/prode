@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   validates_uniqueness_of(:email, :message => "That email is already registered!")
   validates_uniqueness_of(:nick, :message => "That nick is already registered!")
+
+  attr_accessor :password # virtual field
   
   has_many :forecasts
   
