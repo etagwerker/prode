@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  first_id: 1
+  second_id: 1
+  third_id: 1
+  fourth_id: 1
+
+two:
+  first_id: 1
+  second_id: 1
+  third_id: 1
+  fourth_id: 1

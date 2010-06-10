@@ -1,0 +1,27 @@
+<h1>Editing top_four</h1>
+
+<% form_for(@top_four) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :first %><br />
+    <%= f.text_field :first %>
+  </p>
+  <p>
+    <%= f.label :second %><br />
+    <%= f.text_field :second %>
+  </p>
+  <p>
+    <%= f.label :third %><br />
+    <%= f.text_field :third %>
+  </p>
+  <p>
+    <%= f.label :fourth %><br />
+    <%= f.text_field :fourth %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', '/' %>

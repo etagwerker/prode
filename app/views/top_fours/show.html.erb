@@ -1,0 +1,23 @@
+<p>
+  <b>First:</b>
+  <%=h @top_four.first %>
+</p>
+
+<p>
+  <b>Second:</b>
+  <%=h @top_four.second %>
+</p>
+
+<p>
+  <b>Third:</b>
+  <%=h @top_four.third %>
+</p>
+
+<p>
+  <b>Fourth:</b>
+  <%=h @top_four.fourth %>
+</p>
+
+
+<%= show_edit_link? ? (link_to 'Edit', edit_top_four_path(@top_four)) : '' %> |
+<%= link_to 'Back', '/' %>

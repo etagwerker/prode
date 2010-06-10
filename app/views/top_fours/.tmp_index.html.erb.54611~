@@ -1,0 +1,26 @@
+<h1>Listing top_fours</h1>
+
+<table>
+  <tr>
+    <th>First</th>
+    <th>Second</th>
+    <th>Third</th>
+    <th>Fourth</th>
+  </tr>
+
+<% @top_fours.each do |top_four| %>
+  <tr>
+    <td><%=h top_four.first_id %></td>
+    <td><%=h top_four.second_id %></td>
+    <td><%=h top_four.third_id %></td>
+    <td><%=h top_four.fourth_id %></td>
+    <td><%= link_to 'Show', top_four %></td>
+    <td><%= link_to 'Edit', edit_top_four_path(top_four) %></td>
+    <td><%= link_to 'Destroy', top_four, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New top_four', new_top_four_path %>

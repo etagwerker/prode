@@ -1,0 +1,13 @@
+<p>
+  <b>Key:</b>
+  <%=h @system_option.key %>
+</p>
+
+<p>
+  <b>Value:</b>
+  <%=h @system_option.value %>
+</p>
+
+
+<%= link_to 'Edit', edit_system_option_path(@system_option) %> |
+<%= link_to 'Back', system_options_path %>

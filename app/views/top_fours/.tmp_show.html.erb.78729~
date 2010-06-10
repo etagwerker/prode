@@ -1,0 +1,23 @@
+<p>
+  <b>First:</b>
+  <%=h @top_four.first_id %>
+</p>
+
+<p>
+  <b>Second:</b>
+  <%=h @top_four.second_id %>
+</p>
+
+<p>
+  <b>Third:</b>
+  <%=h @top_four.third_id %>
+</p>
+
+<p>
+  <b>Fourth:</b>
+  <%=h @top_four.fourth_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_top_four_path(@top_four) %> |
+<%= link_to 'Back', top_fours_path %>
