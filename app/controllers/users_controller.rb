@@ -52,6 +52,7 @@ class UsersController < ApplicationController
       if @user.save
         flash[:notice] = 'User was successfully created.'
         generate_forecasts(@user)
+        @user.top_four = TopFour.new
         session['user_id'] = @user.id
         format.html { redirect_to(:controller => :site) }
         format.xml  { render :xml => @user, :status => :created, :location => @user }
