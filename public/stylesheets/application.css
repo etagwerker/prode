@@ -71,7 +71,7 @@ a:hover { color: #fff; background-color:#000; }
 }
 
 .wrong_forecast {
-	background-color:#ff9933;
+	background-color:#FFCCCC;
 }
 
 .join {
@@ -83,4 +83,23 @@ a:hover { color: #fff; background-color:#000; }
 	font-size: 30px;
 	width: 900px;
 	line-height: 32px;	
+}
+
+.forecasts {
+	clear: left; 
+	float: left;
+}
+
+.reference {
+	float: left;
+	padding-left:80px;
+	padding-top:14px;
+}
+
+.gray {
+	background-color: #CACBD3;
+}
+
+.positions {
+	font-weight:bold;
 }

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100607153154) do
+ActiveRecord::Schema.define(:version => 20100610043232) do
 
   create_table "forecasts", :force => true do |t|
     t.integer  "game_id"
@@ -42,9 +42,26 @@ ActiveRecord::Schema.define(:version => 20100607153154) do
     t.datetime "updated_at"
   end
 
+  create_table "system_options", :force => true do |t|
+    t.string   "key"
+    t.string   "value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "teams", :force => true do |t|
     t.string   "name"
     t.integer  "group_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "top_fours", :force => true do |t|
+    t.string   "first"
+    t.string   "second"
+    t.string   "third"
+    t.string   "fourth"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -54,9 +71,10 @@ ActiveRecord::Schema.define(:version => 20100607153154) do
     t.string   "hashed_password"
     t.string   "nick"
     t.boolean  "admin"
-    t.integer  "score",           :default => 0
+    t.integer  "correct_score",   :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "exact_score"
   end
 
 end

@@ -1,5 +1,10 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :system_options
+
+  map.resources :top_fours
+
   map.connect ':user/forecasts', :controller => :site, :action => :forecasts
+  map.connect ':user/top', :controller => :top_fours, :action => :show
   
   map.root :controller => :site
   

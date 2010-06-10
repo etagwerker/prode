@@ -4,9 +4,22 @@
 </div>
 <% end %>
 
-<h1>Forecasts by <em><%= @nickname %></em></h1>
+<h1 style="float:left;">Forecasts by <em><%= @nickname %></em></h1> 
 
-<table>
+<table class="reference">
+	<tr>
+		<td class="correct_forecast">&nbsp;</td>
+		<td>Correct</td>
+		<td class="exact_forecast">&nbsp;</td>
+		<td>Exact</td>
+		<td class="wrong_forecast">&nbsp;</td>
+		<td>Wrong</td>
+		<td>&nbsp;</td>
+		<td>Not played yet</td>
+	</tr>
+</table>
+
+<table class="forecasts">
   <tr>
   	<th>Date</th>
     <th>Game</th>

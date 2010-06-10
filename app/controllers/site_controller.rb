@@ -10,7 +10,7 @@ class SiteController < ApplicationController
   end
   
   def positions
-    @users = User.find(:all, :order => 'score ASC')
+    @users = User.find(:all, :order => '(correct_score + exact_score) DESC')
   end
   
   def forecasts
@@ -22,6 +22,8 @@ class SiteController < ApplicationController
     end
   end
   
-  
+  def others
+    @users = User.find(:all, :order => 'nick ASC')
+  end
   
 end

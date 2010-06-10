@@ -4,6 +4,11 @@
   <%= f.error_messages %>
 
   <p>
+    <%= f.label :datetime %><br />
+    <%= f.date_select :datetime %>
+  </p>
+
+  <p>
     Home: <br />
 	<%= @game.home_team %>
   </p>

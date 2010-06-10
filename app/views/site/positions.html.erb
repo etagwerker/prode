@@ -1,19 +1,23 @@
 <h1>Listing positions</h1>
 
-<table>
+<table class="positions">
   <tr>
   	<th>Position</th>
     <th>Nick</th>
-    <th>Score</th>
+    <th>Correct Points</th>
+	<th>Exact Points</th>
+	<th>Total Points</th>
   </tr>
 
 <% position = 1 %>
 
 <% @users.each do |user| %>
-  <tr>
-  	<td><%=h position %></td>
+  <tr class="<%= cycle('gray','') %>">
+  	<td><%=h "##{position}" %></td>
     <td><%=h user.nick %></td>
-    <td><%=h user.score %></td>
+    <td><%=h user.correct_score.to_i %></td>
+	<td><%=h user.exact_score.to_i %></td>
+	<td><%=h user.total_score %></td>
   </tr>
   <% position += 1 %>
 <% end %>

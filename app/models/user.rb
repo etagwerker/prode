@@ -5,8 +5,13 @@ class User < ActiveRecord::Base
   attr_accessor :password # virtual field
   
   has_many :forecasts
+  has_one :top_four
   
   def is_admin?
     self.admin
+  end
+  
+  def total_score
+    exact_score.to_i + correct_score.to_i
   end
 end

@@ -28,16 +28,17 @@ class Game < ActiveRecord::Base
     return result
   end
   
+  # wrong is not correct :-)
   def wrong?(forecast)
     result = false
     if forecast.result
-      result = correct?(forecast)
+      result = !correct?(forecast)
     end
     return result
   end
   
   def result_entered?
-    not self.updated_at.eql? self.created_at
+    self.home_goals != nil && self.away_goals != nil && (not (self.updated_at.eql? self.created_at))
   end
 
 end
