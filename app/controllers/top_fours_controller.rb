@@ -43,6 +43,9 @@ class TopFoursController < ApplicationController
   def edit
     @teams = Team.find(:all, :order => 'name ASC')
     @top_four = TopFour.find(params[:id])
+    if @user != @top_four.user
+      redirect_to '/'
+    end
   end
 
   # POST /top_fours
