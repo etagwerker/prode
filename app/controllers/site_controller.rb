@@ -10,7 +10,8 @@ class SiteController < ApplicationController
   end
   
   def positions
-    @users = User.find(:all, :order => '(correct_score + exact_score) DESC')
+    @users = User.find(:all)
+    @users.sort {|x,y| (x.correct_score.to_i + x.exact_score.to_i) <=> (y.correct_score.to_i + y.exact_score.to_i)}
   end
   
   def forecasts
