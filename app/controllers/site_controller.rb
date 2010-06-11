@@ -11,7 +11,7 @@ class SiteController < ApplicationController
   
   def positions
     @users = User.find(:all)
-    @users.sort {|x,y| (x.correct_score.to_i + x.exact_score.to_i) <=> (y.correct_score.to_i + y.exact_score.to_i)}
+    @users.sort! {|x,y| (x.correct_score.to_i + x.exact_score.to_i) <=> (y.correct_score.to_i + y.exact_score.to_i)}
   end
   
   def forecasts
