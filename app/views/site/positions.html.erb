@@ -7,6 +7,7 @@
     <th>Correct Points</th>
 	<th>Exact Points</th>
 	<th>Total Points</th>
+	<th colspan="2">&nbsp;</th>
   </tr>
 
 <% position = 1 %>
@@ -18,6 +19,8 @@
     <td><%=h user.correct_score.to_i %></td>
 	<td><%=h user.exact_score.to_i %></td>
 	<td><%=h user.total_score %></td>
+	<td><%= link_to 'Forecasts', "/#{user.nick}/forecasts" %></td>
+	<td><%= link_to 'Top 4', "/#{user.nick}/top" %></td>
   </tr>
   <% position += 1 %>
 <% end %>
