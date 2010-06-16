@@ -103,3 +103,12 @@ a:hover { color: #fff; background-color:#000; }
 .positions {
 	font-weight:bold;
 }
+
+.games_header {
+	font-size:1.2em;
+}
+
+.game_line {
+	font-size:1.1em;
+	font-weight:bold;
+}

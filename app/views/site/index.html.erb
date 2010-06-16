@@ -2,9 +2,25 @@
 			
 			<div id="tabs">
 			    <ul>
+			    	<li><a href="#status"><span>Posiciones</span></a></li>
 			        <li><a href="#reglas"><span>Reglas</span></a></li>
 					<li><a href="#rules"><span>Rules</span></a></li>
 			    </ul>
+				<div id="status">
+					<h1>Posiciones</h1>
+					
+					<p>
+						<%= render :partial => '/site/positions_table' %>
+					</p>
+					
+					<h1>Ultimos partidos</h1>
+					
+					<p>
+						<%= render :partial => '/games/table' %>
+					</p>
+					
+				</div>
+				
 			    <div id="reglas">
 			        <h1>Bienvenidos al Prode Mundial</h1>
                     
