@@ -1,12 +1,13 @@
 class GamesController < ApplicationController
   layout 'application'
   
-  before_filter :authenticate_admin
+  before_filter :authenticate_admin, :except => [:index]
+  before_filter :authenticate, :except => [:index]
   
   # GET /games
   # GET /games.xml
   def index
-    @games = Game.all
+    @games = Game.find(:all, :order => 'datetime ASC')
 
     respond_to do |format|
       format.html # index.html.erb
@@ -47,7 +48,7 @@ class GamesController < ApplicationController
       end
     end
   end
-
+  
   private
     def calculate_scores(game)
       if game.home_goals != nil && game.home_goals >= 0 && game.away_goals != nil && game.away_goals >= 0

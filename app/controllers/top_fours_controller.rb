@@ -2,7 +2,7 @@ class TopFoursController < ApplicationController
   layout 'application'
 
   before_filter :load_user
-  before_filter :authenticate
+  before_filter :authenticate, :except => [:index, :show]
   
   # GET /top_fours
   # GET /top_fours.xml

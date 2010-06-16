@@ -4,6 +4,11 @@ class SiteController < ApplicationController
   before_filter :load_user
   before_filter :authenticate, :except => [:index, :logout, :login, :forecasts]
   
+  def index
+    @users = User.find(:all, :order => 'correct_score DESC')
+    @games = Game.find(:all, :order => 'updated_at DESC', :limit => 3)
+  end
+  
   def logout
     reset_session
     redirect_to :controller => :site
