@@ -2,8 +2,8 @@
   <tr class="games_header">
   	<th>Date</th>
     <th>Home team</th>
-    <th>Away team</th>
     <th>Home goals</th>
+	<th>Away team</th>
     <th>Away goals</th>
     <th>Result</th>
   </tr>
@@ -12,8 +12,8 @@
   <tr class="game_line">
   	<td><%=h game.short_datetime %></td>
     <td><%=h game.home_team %></td>
-    <td><%=h game.away_team %></td>
     <td><%=h game.home_goals %></td>
+	<td><%=h game.away_team %></td>
     <td><%=h game.away_goals %></td>
     <td><%=h game.result %></td>
 	<% if show_edit_link? %>
