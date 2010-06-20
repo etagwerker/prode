@@ -9,7 +9,7 @@
   </tr>
 
 <% @games.each do |game| %>
-  <tr class="game_line">
+  <tr class="game_line" id="<%= game.to_label %>">
   	<td><%=h game.short_datetime %></td>
     <td><%=h game.home_team %></td>
     <td><%=h game.home_goals %></td>

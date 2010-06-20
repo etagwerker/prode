@@ -40,6 +40,10 @@ class Game < ActiveRecord::Base
   def result_entered?
     self.home_goals != nil && self.away_goals != nil && (not (self.updated_at.eql? self.created_at))
   end
+  
+  def to_label
+    "#{self.home_team.to_label}-#{self.away_team.to_label}"
+  end
 
 end
 

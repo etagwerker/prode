@@ -7,4 +7,9 @@ class Team < ActiveRecord::Base
   def to_s
     self.name.capitalize
   end
+  
+  def to_label
+    name.downcase.gsub(/[^a-z0-9]+/i, '-')    
+  end
+  
 end
