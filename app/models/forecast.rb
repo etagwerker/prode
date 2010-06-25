@@ -3,6 +3,10 @@ class Forecast < ActiveRecord::Base
   belongs_to :user
   include Result
 
+  named_scope :for_round, lambda { |round|
+      { :include => :game, :conditions => [ 'games.round_number = ? ', round] } 
+  }
+  
   # determines if this forecast was correct
   def correct?
     self.game.correct?(self)

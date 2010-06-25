@@ -5,6 +5,11 @@ class ApplicationController < ActionController::Base
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
   before_filter :load_user
 
+  # returns the round number
+  def get_round_number
+    SystemOption.find_by_key(ROUND_NUMBER).value.to_i
+  end
+
   def encrypt(password)
     Digest::SHA1.hexdigest(password)[0..39]
   end

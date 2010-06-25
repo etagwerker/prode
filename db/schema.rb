@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100610043232) do
+ActiveRecord::Schema.define(:version => 20100625123027) do
 
   create_table "forecasts", :force => true do |t|
     t.integer  "game_id"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(:version => 20100610043232) do
     t.string   "result"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "round_number"
   end
 
   create_table "groups", :force => true do |t|

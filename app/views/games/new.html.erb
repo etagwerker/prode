@@ -4,12 +4,23 @@
   <%= f.error_messages %>
 
   <p>
-    <%= f.label :home_team_id %><br />
-    <%= f.text_field :home_team_id %>
+    <%= f.label :round_number %><br />
+    <%= f.text_field :round_number %>
+  </p>
+  
+  <p>
+    <%= f.label :datetime %><br />
+    <%= f.date_select :datetime %>
+  </p>
+  
+  <p>
+    <%= f.label :home_team %><br />
+	<%= select(:game, :home_team_id, @teams, {:include_blank => false}) %>
+
   </p>
   <p>
     <%= f.label :away_team_id %><br />
-    <%= f.text_field :away_team_id %>
+	<%= select(:game, :away_team_id, @teams, {:include_blank => false}) %>
   </p>
   <p>
     <%= f.label :home_goals %><br />
@@ -18,10 +29,6 @@
   <p>
     <%= f.label :away_goals %><br />
     <%= f.text_field :away_goals %>
-  </p>
-  <p>
-    <%= f.label :result %><br />
-    <%= f.text_field :result %>
   </p>
   <p>
     <%= f.submit 'Create' %>

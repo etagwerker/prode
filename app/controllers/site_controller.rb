@@ -21,8 +21,9 @@ class SiteController < ApplicationController
   def forecasts
     user = User.find_by_nick(params[:user])
     @nickname = params[:user]
+    @round = get_round_number
     if user
-      @forecasts = user.forecasts
+      @forecasts = user.forecasts.for_round(@round)
       @forecasts = @forecasts.sort { |x,y| x <=> y }
     end
   end

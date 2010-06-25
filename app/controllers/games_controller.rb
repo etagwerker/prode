@@ -7,7 +7,7 @@ class GamesController < ApplicationController
   # GET /games
   # GET /games.xml
   def index
-    @games = Game.find(:all, :order => 'datetime ASC')
+    @games = Game.find(:all, :order => 'datetime ASC', :conditions => {:round_number => get_round_number})
 
     respond_to do |format|
       format.html # index.html.erb
@@ -25,9 +25,31 @@ class GamesController < ApplicationController
       format.xml  { render :xml => @game }
     end
   end
+  
+  # POST /games
+  # POST /games.xml
+  def create
+    @game = Game.new(params[:game])
+
+    respond_to do |format|
+      if @game.save
+        flash[:notice] = 'Game was successfully created.'
+        User.find(:all).each do |user| 
+          Forecast.new(:user => user, :game => @game).save!
+        end
+          
+        format.html { redirect_to(@game) }
+        format.xml  { render :xml => @game, :status => :created, :location => @game }
+      else
+        format.html { render :action => "new" }
+        format.xml  { render :xml => @game.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
 
   # GET /games/1/edit
   def edit
+    @teams = Team.find(:all, :order => 'name ASC').collect {|t| [ t.name, t.id ] }
     @game = Game.find(params[:id])
   end
 
@@ -46,6 +68,19 @@ class GamesController < ApplicationController
         format.html { render :action => "edit" }
         format.xml  { render :xml => @game.errors, :status => :unprocessable_entity }
       end
+    end
+  end
+  
+  
+  # GET /games/new
+  # GET /games/new.xml
+  def new
+    @teams = Team.find(:all, :order => 'name ASC').collect {|t| [ t.name, t.id ] }
+    @game = Game.new
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.xml  { render :xml => @game }
     end
   end
   
