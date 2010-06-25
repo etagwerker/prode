@@ -32,7 +32,9 @@
     <th>Home Goals Forecast</th>
     <th>Away Goals Forecast</th>
     <th>Result</th>
-	<th></th>
+	<% if show_forecasts_edit_link? %>
+		<th></th>
+	<% end %>
 	<th>Home Goals</th>
     <th>Away Goals</th>
     <th>Result</th>
@@ -45,7 +47,10 @@
     <td><%=h forecast.home_goals %></td>
     <td><%=h forecast.away_goals %></td>
     <td><%=h forecast.result_label %></td>
-	<td><%= link_to 'Edit', edit_forecast_path(forecast) %></td>
+	<% if show_forecasts_edit_link? %>
+		<td><%= link_to 'Edit', edit_forecast_path(forecast) %></td>
+	<% end %>
+	
 	<td><%=h forecast.game.home_goals %> </td>
 	<td><%=h forecast.game.away_goals %> </td>
     <td><%=h forecast.game.result %> </td>

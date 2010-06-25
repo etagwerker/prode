@@ -1,3 +1,3 @@
 module SiteHelper
-  
+    
 end
