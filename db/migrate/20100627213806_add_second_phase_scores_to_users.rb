@@ -6,10 +6,10 @@ class AddSecondPhaseScoresToUsers < ActiveRecord::Migration
     Game.reset_column_information    
     Game.find(:all, :conditions => ['round_number > ?',1]).each do |game|
       game.forecasts.each do |forecast|
-        if forecast.exact?
+        if game.exact?(forecast)
           forecast.user.second_exact_score = forecast.user.second_exact_score.to_i + EXACT_POINTS
         end
-        if forecast.correct?
+        if game.correct?(forecast)
           forecast.user.second_correct_score = forecast.user.second_correct_score.to_i + CORRECT_POINTS
         end
         forecast.user.save
