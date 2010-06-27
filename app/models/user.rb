@@ -14,4 +14,8 @@ class User < ActiveRecord::Base
   def total_score
     exact_score.to_i + correct_score.to_i
   end
+  
+  def second_total_score
+    second_exact_score.to_i + second_correct_score.to_i
+  end
 end

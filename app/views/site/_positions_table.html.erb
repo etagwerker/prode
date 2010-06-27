@@ -5,6 +5,9 @@
     <th>Correct Points</th>
 	<th>Exact Points</th>
 	<th>Total Points</th>
+	<th>Correct Points (2nd Phase)</th>
+	<th>Exact Points (2nd Phase)</th>
+	<th>Total Points (2nd Phase)</th>	
 	<th colspan="2">&nbsp;</th>
   </tr>
 
@@ -17,6 +20,9 @@
     <td><%=h user.correct_score.to_i %></td>
 	<td><%=h user.exact_score.to_i %></td>
 	<td><%=h user.total_score %></td>
+	<td><%=h user.second_correct_score.to_i %></td>
+	<td><%=h user.second_exact_score.to_i %></td>
+	<td><%=h user.second_total_score %></td>
 	<td><%= link_to 'Forecasts', "/#{user.nick}/forecasts" %></td>
 	<td><%= link_to 'Top 4', "/#{user.nick}/top" %></td>
   </tr>

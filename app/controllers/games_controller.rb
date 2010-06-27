@@ -93,9 +93,11 @@ class GamesController < ApplicationController
           unless forecast.collected
             if forecast.exact
               forecast.user.exact_score = forecast.user.exact_score.to_i + EXACT_POINTS
+              forecast.user.second_exact_score = forecast.user.second_exact_score.to_i + EXACT_POINTS
             end
             if forecast.correct
               forecast.user.correct_score = forecast.user.correct_score.to_i + CORRECT_POINTS
+              forecast.user.second_correct_score = forecast.user.second_correct_score.to_i + CORRECT_POINTS
             end
             forecast.collected = true  
           end
