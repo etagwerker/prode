@@ -5,7 +5,7 @@ class SiteController < ApplicationController
   before_filter :authenticate, :except => [:index, :logout, :login, :forecasts]
   
   def index
-    @users = User.find(:all, :order => 'correct_score DESC')
+    @users = User.find(:all, :order => 'second_correct_score DESC')
     @games = Game.find(:all, :order => 'updated_at DESC', :limit => 3)
   end
   
