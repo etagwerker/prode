@@ -7,6 +7,10 @@ class Forecast < ActiveRecord::Base
       { :include => :game, :conditions => [ 'games.round_number = ? ', round] } 
   }
   
+  named_scope :for_second_round, lambda { |round|
+      { :include => :game, :conditions => [ 'games.round_number > 1'] } 
+  }
+  
   # determines if this forecast was correct
   def correct?
     self.game.correct?(self)

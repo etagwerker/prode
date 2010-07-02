@@ -7,7 +7,7 @@ class GamesController < ApplicationController
   # GET /games
   # GET /games.xml
   def index
-    @games = Game.find(:all, :order => 'datetime ASC', :conditions => {:round_number => get_round_number})
+    @games = Game.find(:all, :order => 'datetime ASC', :conditions => 'round_number > 1')
 
     respond_to do |format|
       format.html # index.html.erb

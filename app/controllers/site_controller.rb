@@ -23,7 +23,7 @@ class SiteController < ApplicationController
     @nickname = params[:user]
     @round = get_round_number
     if user
-      @forecasts = user.forecasts.for_round(@round)
+      @forecasts = user.forecasts.for_second_round
       @forecasts = @forecasts.sort { |x,y| x <=> y }
     end
   end
