@@ -1,85 +1,74 @@
 class GroupsController < ApplicationController
+  before_action :set_group, only: [:show, :edit, :update, :destroy]
+
   # GET /groups
-  # GET /groups.xml
+  # GET /groups.json
   def index
     @groups = Group.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @groups }
-    end
   end
 
   # GET /groups/1
-  # GET /groups/1.xml
+  # GET /groups/1.json
   def show
-    @group = Group.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @group }
-    end
   end
 
   # GET /groups/new
-  # GET /groups/new.xml
   def new
     @group = Group.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @group }
-    end
   end
 
   # GET /groups/1/edit
   def edit
-    @group = Group.find(params[:id])
   end
 
   # POST /groups
-  # POST /groups.xml
+  # POST /groups.json
   def create
-    @group = Group.new(params[:group])
+    @group = Group.new(group_params)
 
     respond_to do |format|
       if @group.save
-        flash[:notice] = 'Group was successfully created.'
-        format.html { redirect_to(@group) }
-        format.xml  { render :xml => @group, :status => :created, :location => @group }
+        format.html { redirect_to @group, notice: 'Group was successfully created.' }
+        format.json { render :show, status: :created, location: @group }
       else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @group.errors, :status => :unprocessable_entity }
+        format.html { render :new }
+        format.json { render json: @group.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # PUT /groups/1
-  # PUT /groups/1.xml
+  # PATCH/PUT /groups/1
+  # PATCH/PUT /groups/1.json
   def update
-    @group = Group.find(params[:id])
-
     respond_to do |format|
-      if @group.update_attributes(params[:group])
-        flash[:notice] = 'Group was successfully updated.'
-        format.html { redirect_to(@group) }
-        format.xml  { head :ok }
+      if @group.update(group_params)
+        format.html { redirect_to @group, notice: 'Group was successfully updated.' }
+        format.json { render :show, status: :ok, location: @group }
       else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @group.errors, :status => :unprocessable_entity }
+        format.html { render :edit }
+        format.json { render json: @group.errors, status: :unprocessable_entity }
       end
     end
   end
 
   # DELETE /groups/1
-  # DELETE /groups/1.xml
+  # DELETE /groups/1.json
   def destroy
-    @group = Group.find(params[:id])
     @group.destroy
-
     respond_to do |format|
-      format.html { redirect_to(groups_url) }
-      format.xml  { head :ok }
+      format.html { redirect_to groups_url, notice: 'Group was successfully destroyed.' }
+      format.json { head :no_content }
     end
   end
+
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_group
+      @group = Group.find(params[:id])
+    end
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def group_params
+      params.require(:group).permit(:name)
+    end
 end

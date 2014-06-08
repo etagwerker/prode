@@ -1,7 +1,30 @@
+<h1>Listing games</h1>
 
-<h1>Game Results</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Local</th>
+      <th>Visitor</th>
+      <th>Time</th>
+      <th>Order number</th>
+      <th>City</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
 
-<%= render :partial => '/games/table' %>
+  <tbody>
+    <% @games.each do |game| %>
+      <tr>
+        <td><%= game.local_id %></td>
+        <td><%= game.visitor_id %></td>
+        <td><%= game.time %></td>
+        <td><%= game.order_number %></td>
+        <td><%= game.city %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
-<br />
+<br>
 
+<%= link_to 'New Game', new_game_path %>

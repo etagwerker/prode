@@ -1,88 +1,74 @@
 class TeamsController < ApplicationController
-  layout 'application'
-  before_filter :authenticate_admin, :except => [:index]
-  
-  # GET /teams
-  # GET /teams.xml
-  def index
-    @groups = Group.find(:all)
+  before_action :set_team, only: [:show, :edit, :update, :destroy]
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @teams }
-    end
+  # GET /teams
+  # GET /teams.json
+  def index
+    @teams = Team.all
   end
 
   # GET /teams/1
-  # GET /teams/1.xml
+  # GET /teams/1.json
   def show
-    @team = Team.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @team }
-    end
   end
 
   # GET /teams/new
-  # GET /teams/new.xml
   def new
     @team = Team.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @team }
-    end
   end
 
   # GET /teams/1/edit
   def edit
-    @team = Team.find(params[:id])
   end
 
   # POST /teams
-  # POST /teams.xml
+  # POST /teams.json
   def create
-    @team = Team.new(params[:team])
+    @team = Team.new(team_params)
 
     respond_to do |format|
       if @team.save
-        flash[:notice] = 'Team was successfully created.'
-        format.html { redirect_to(@team) }
-        format.xml  { render :xml => @team, :status => :created, :location => @team }
+        format.html { redirect_to @team, notice: 'Team was successfully created.' }
+        format.json { render :show, status: :created, location: @team }
       else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @team.errors, :status => :unprocessable_entity }
+        format.html { render :new }
+        format.json { render json: @team.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # PUT /teams/1
-  # PUT /teams/1.xml
+  # PATCH/PUT /teams/1
+  # PATCH/PUT /teams/1.json
   def update
-    @team = Team.find(params[:id])
-
     respond_to do |format|
-      if @team.update_attributes(params[:team])
-        flash[:notice] = 'Team was successfully updated.'
-        format.html { redirect_to(@team) }
-        format.xml  { head :ok }
+      if @team.update(team_params)
+        format.html { redirect_to @team, notice: 'Team was successfully updated.' }
+        format.json { render :show, status: :ok, location: @team }
       else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @team.errors, :status => :unprocessable_entity }
+        format.html { render :edit }
+        format.json { render json: @team.errors, status: :unprocessable_entity }
       end
     end
   end
 
   # DELETE /teams/1
-  # DELETE /teams/1.xml
+  # DELETE /teams/1.json
   def destroy
-    @team = Team.find(params[:id])
     @team.destroy
-
     respond_to do |format|
-      format.html { redirect_to(teams_url) }
-      format.xml  { head :ok }
+      format.html { redirect_to teams_url, notice: 'Team was successfully destroyed.' }
+      format.json { head :no_content }
     end
   end
+
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_team
+      @team = Team.find(params[:id])
+    end
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def team_params
+      params.require(:team).permit(:name, :points, :goals_for, :goals_against, :difference)
+    end
 end

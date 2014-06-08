@@ -1,37 +1,6 @@
-<h1>Editing game for <%= @game.home_team %> vs. <%= @game.away_team %> on <%= @game.nice_datetime %></h1>
+<h1>Editing game</h1>
 
-<% form_for(@game) do |f| %>
-  <%= f.error_messages %>
+<%= render 'form' %>
 
-  <p>
-    <%= f.label :round_number %><br />
-    <%= f.text_field :round_number %>
-  </p>
-
-  <p>
-    <%= f.label :datetime %><br />
-    <%= f.date_select :datetime %>
-  </p>
-
-  <p>
-    Home: <br />
-	<%= @game.home_team %>
-  </p>
-  <p>
-    Away: <br />
-    <%= @game.away_team %>
-  </p>
-  <p>
-    <%= f.label :home_goals %><br />
-    <%= f.text_field :home_goals %>
-  </p>
-  <p>
-    <%= f.label :away_goals %><br />
-    <%= f.text_field :away_goals %>
-  </p>
-  <p>
-    <%= f.submit 'Update' %>
-  </p>
-<% end %>
-
+<%= link_to 'Show', @game %> |
 <%= link_to 'Back', games_path %>

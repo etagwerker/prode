@@ -1,51 +1,14 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-        <title>Prode Mundial</title>
-        <%= stylesheet_link_tag 'application', 'jquery-ui' %>
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
-        <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
-  
-	    <script>
-		  $(document).ready(function() {
-		    $("#tabs").tabs();
-		  });
-	  </script>
-    </head>
-    <body>
-    	<div class="header">
-    		<% if logged_in? %>
-			  <span>Hola <%= @user.nick %>! | </span>
-			<% end %>
-			<a href="/">Home</a>
-            <% if logged_in? %>
-	          <a href="/site/positions">Forecast Standings</a>
-			  <a href="/games">Games</a>
-              <a href="/teams">Teams</a>
-              <a href="/<%= @user.nick %>/forecasts">My Forecasts</a>
-			  <a href="/<%= @user.nick %>/top">My Top 4</a>
-			  <a href="/top_fours">Others Top 4</a>
-			  <a href="/site/others">Others Forecasts</a>
-              <a href="/site/logout">Logout</a>
-            <% else %>
-              <a href="/site/login">Login</a>
-			  <a href="/users/new">Register</a>         
-            <% end %>
-        </div>
-    	<%= yield %>
-		<script type="text/javascript">
+<head>
+  <title>Prode</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
 
-		  var _gaq = _gaq || [];
-		  _gaq.push(['_setAccount', 'UA-17058522-1']);
-		  _gaq.push(['_trackPageview']);
-		
-		  (function() {
-		    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-		    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-		  })();
-		
-		</script>
-    </body>
+<%= yield %>
+
+</body>
 </html>
