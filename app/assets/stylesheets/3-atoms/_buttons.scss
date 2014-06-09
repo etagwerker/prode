@@ -1,0 +1,38 @@
+/* === FOOTER */
+/* ========================== */
+
+// Imports:
+@import "compass/css3";
+
+
+.button, input.button {
+	display: inline-block;
+	text-align: center;
+	background: $magenta;
+	@include border-radius(8px);
+	@include box-shadow(inset 0px -5px 0px 0px rgba(0,0,0,0.13));
+	padding: .5em 1.5em;
+	@include font-lato-normal;
+	font-style: italic;
+	font-size: 1.76em;
+	color: #fff;
+	margin-left: auto;
+	margin-right: auto;
+	text-decoration: none;
+	cursor: pointer;
+	@include transition($hover_transition_time);
+	@include transition-property(background, color);
+	&:hover {
+		background-color: #fff;
+		color: $magenta;
+		@include box-shadow(inset 0px -5px 0px 0px rgba(0,0,0,0.13));
+	}
+	&:active {
+		@include transition(0ms);
+		background: $magenta;
+		color: #000;
+		@include box-shadow(inset 0px 5px 0px 0px rgba(0,0,0,0.2));
+		padding-top: .55em;
+		padding-bottom: .45em;
+	}
+}

@@ -1,0 +1,39 @@
+/* === FOOTER */
+/* ========================== */
+
+// Imports:
+@import "compass/css3";
+
+footer {
+	color: #fff;
+	position: relative;
+	text-align: center;
+	padding-top: $gutter*1.5;
+	padding-bottom: $gutter*1.5;
+
+	.logo {
+		text-align: left;
+		margin-left: 0;
+		margin-right: auto;
+		position: absolute;
+		top: 65px;
+		left: 40px;
+		font-size: 1.5em;
+		background-size: 46px;
+	  @media screen and (max-width: $breakpoint_1) {
+			display: none;
+	  }
+	}
+	.slogan {
+		@include font-lato-light;
+		font-size: 1em;
+		color: #fff;
+		text-align: left;
+		position: absolute;
+		top: 88px;
+		right: 40px;
+	  @media screen and (max-width: $breakpoint_1) {
+			display: none;
+	  }
+	}
+}

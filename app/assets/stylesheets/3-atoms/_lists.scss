@@ -1,0 +1,8 @@
+ul {
+  .odd {
+    background-color: $light_grey;
+  }
+  .even {
+    background-color: lighten($green, 40%);
+  }
+}

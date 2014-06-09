@@ -1,0 +1,28 @@
+// === VARIABLES
+// ==========================
+
+// Imports:
+@import "compass/css3";
+
+// Colors:
+$green: #00FF8C;
+$orange: #FFCC00;
+$magenta: #F70A7C;
+$light_grey: #EFF7F7;
+$slogan_grey: #5A5A5A;
+
+// Measurements:
+$gutter: 30px;
+$hover_transition_time: 200ms;
+
+// Typography:
+$font-lato: "Lato", "Helvetica", Arial, sans-serif;
+$font-maven: "Maven", "Lato", "Helvetica", Arial, sans-serif;
+$base-font-size: 17px;
+$base-line-height: 1.4;
+
+// Breakpoints:
+$breakpoint_0: 500px;
+$breakpoint_1: 768px;
+$breakpoint_2: 992px;
+$breakpoint_3: 1200px;

@@ -1,0 +1,35 @@
+/* === QUOTES */
+/* ========================== */
+
+// Imports:
+@import "compass/css3";
+
+blockquote {
+	p {
+		@include font-lato-light;
+		font-style: italic;
+		font-size: 1.8235em; // 31px
+		@include text-shadow(0px 1px 0px rgba(0,0,0,0.21));
+		margin-left: 20%;
+		margin-right: 20%;
+	  @media screen and (max-width: $breakpoint_1) {
+			margin-left: 10%;
+			margin-right: 10%;
+	  }
+	}
+	p.author {
+		@include font-lato-bold;
+		font-style: normal;
+		font-size: 1.1764em; // 20px
+		border-top: 2px solid #fff;
+		margin: 1em 40% 0;
+		padding-top: .5em;
+	  @media screen and (max-width: $breakpoint_1) {
+			margin-left: 10%;
+			margin-right: 10%;
+	  }
+	}
+  @media screen and (max-width: $breakpoint_1) {
+		font-size: .7em;
+  }
+}

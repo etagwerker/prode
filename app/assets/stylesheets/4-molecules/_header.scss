@@ -1,0 +1,53 @@
+/* === HEADER */
+/* ========================== */
+
+// Imports:
+@import "compass/css3";
+
+header {
+	text-align: center;
+	background: #000;
+	color: #fff;
+	padding: $gutter 0;
+}
+.logo {
+	background-position: 0px 0px;
+	width: 380px;
+	margin: ($gutter/3) auto 0;
+	@include font-maven;
+	font-style: normal;
+	font-size: 37px;
+	letter-spacing: 4px;
+	text-transform: uppercase;
+	text-align: center;
+}
+.slogan {
+	@include font-lato-light;
+	font-size: 14px;
+	color: $slogan_grey;
+	letter-spacing: .37em;
+	text-transform: uppercase;
+	margin-top: -14px;
+	@include text-shadow($slogan_grey 0 0 0);
+}
+#choose-lang {
+	position: absolute;
+	top: 0;
+	right: 0;
+	font-size: .7em;
+	padding: 10px;
+	a {
+		color: #fff;
+		text-decoration: none;
+		text-transform: uppercase;
+		letter-spacing: .3em;
+		display: inline-block;
+		padding: 5px;
+		@include transition($hover_transition_time);
+		@include transition-property(background, color);
+		&:hover {
+			color: #000;
+			background: #fff;
+		}
+	}
+}
