@@ -1,10 +1,11 @@
 class GamesController < ApplicationController
+  skip_before_filter :authenticate, only: [:index]
   before_action :set_game, only: [:show, :edit, :update, :destroy]
 
   # GET /games
   # GET /games.json
   def index
-    @games = Game.all
+    @games = Game.includes(:visitor, :local).order('order_number ASC').all
   end
 
   # GET /games/1
