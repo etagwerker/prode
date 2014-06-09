@@ -2,6 +2,7 @@ class CreateTeams < ActiveRecord::Migration
   def change
     create_table :teams do |t|
       t.string :name, null: false
+      t.string :slug, unique: true
       t.integer :group_id, null: false
       t.integer :points, default: 0
       t.integer :goals_for, default: 0

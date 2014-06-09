@@ -4,6 +4,9 @@ class CreateGames < ActiveRecord::Migration
       t.integer :local_id, null: false
       t.integer :visitor_id, null: false
       t.integer :group_id
+      t.integer :home_goals, default: 0
+      t.integer :away_goals, default: 0
+      t.integer :winner_id 
       t.timestamp :time
       t.integer :order_number
       t.string :city
