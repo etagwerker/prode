@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @tournament.name %>
+</p>
+
+<p>
+  <strong>Owner:</strong>
+  <%= render 'shared/user_description', user: @tournament.owner %>
+</p>
+
+<p>
+  <strong>Participants:</strong>
+  <%= @users_count %>
+</p>
+
+<% if current_user == @tournament.owner %>
+  <%= link_to 'Edit', edit_tournament_path(@tournament) %> |
+<% end %>
+
+<h2>Your Forecasts</h2>
+
+<ul class="forecasts">
+  <% @user_forecasts.each do |forecast| %>
+    <%= render 'shared/game', game: forecast %>
+  <% end %>
+</ul>
+
+<%= link_to 'Back', tournaments_path %>

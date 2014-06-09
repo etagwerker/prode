@@ -1,0 +1,19 @@
+<div class="full-width social-login">
+  <% if current_user %>
+    <div class="username">
+      Signed in as:
+      <%= render 'shared/user_description', user: current_user %>.
+      <%= link_to 'Sign out', "/sessions/#{current_user.id}", method: :delete %>
+    </div>
+  <% else %>
+
+    <%= link_to '/auth/facebook' do %>
+      <%= image_tag 'facebook_button.png', width: '180px'  %>
+    <% end %>
+    <%= link_to '/auth/twitter' do %>
+      <%= image_tag 'twitter_button.png', width: '180px'  %>
+    <% end %>
+
+  <% end %>
+
+</div>

@@ -1,0 +1,10 @@
+<li class="game <%= cycle('odd', 'even') %>">
+  <span class="full-width">
+    <%= game.order_number %>. <%= game.formatted_time %> @ <%= game.city %>
+  </span>
+  <div class="teams">
+    <%= image_tag "flags/tiny/#{game.local.name.gsub(' ','_')}.png" %><span><%= game.local %></span> vs.
+    <%= image_tag "flags/tiny/#{game.visitor.name.gsub(' ','_')}.png" %><span><%= game.visitor %></span>
+  </div>
+
+</li>

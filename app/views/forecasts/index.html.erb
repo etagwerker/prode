@@ -1,0 +1,31 @@
+<h1>Listing forecasts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Home goals</th>
+      <th>Away goals</th>
+      <th>Winner</th>
+      <th>Tournament</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @forecasts.each do |forecast| %>
+      <tr>
+        <td><%= forecast.home_goals %></td>
+        <td><%= forecast.away_goals %></td>
+        <td><%= forecast.winner_id %></td>
+        <td><%= forecast.tournament_id %></td>
+        <td><%= link_to 'Show', forecast %></td>
+        <td><%= link_to 'Edit', edit_forecast_path(forecast) %></td>
+        <td><%= link_to 'Destroy', forecast, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Forecast', new_forecast_path %>

@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Home goals:</strong>
+  <%= @forecast.home_goals %>
+</p>
+
+<p>
+  <strong>Away goals:</strong>
+  <%= @forecast.away_goals %>
+</p>
+
+<p>
+  <strong>Winner:</strong>
+  <%= @forecast.winner_id %>
+</p>
+
+<p>
+  <strong>Tournament:</strong>
+  <%= @forecast.tournament_id %>
+</p>
+
+<%= link_to 'Edit', edit_forecast_path(@forecast) %> |
+<%= link_to 'Back', forecasts_path %>

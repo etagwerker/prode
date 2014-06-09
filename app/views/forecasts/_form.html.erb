@@ -1,0 +1,33 @@
+<%= form_for(@forecast) do |f| %>
+  <% if @forecast.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@forecast.errors.count, "error") %> prohibited this forecast from being saved:</h2>
+
+      <ul>
+      <% @forecast.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :home_goals %><br>
+    <%= f.number_field :home_goals %>
+  </div>
+  <div class="field">
+    <%= f.label :away_goals %><br>
+    <%= f.number_field :away_goals %>
+  </div>
+  <div class="field">
+    <%= f.label :winner_id %><br>
+    <%= f.number_field :winner_id %>
+  </div>
+  <div class="field">
+    <%= f.label :tournament_id %><br>
+    <%= f.number_field :tournament_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

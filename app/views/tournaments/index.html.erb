@@ -1,0 +1,19 @@
+<div class="row full-width">
+  <h1>Open tournaments</h1>
+</div>
+
+<div class="row tall">
+  <% if @tournaments.empty? %>
+    <p>No tournaments yet. Want to create one?</p>
+    <p><%= link_to 'Create Tournament', new_tournament_path %></p>
+  <% else %>
+    <ul class="tournaments full-width">
+    <% @tournaments.each do |tournament| %>
+      <li class="tournament <%= cycle('odd', 'even') %>">
+        <%= tournament.name %> (Owner: <%= render 'shared/user_description',
+                                  user: tournament.owner %>) -
+        <%= link_to 'Join', "/tournaments/#{tournament.slug}/join", method: :post, data: { confirm: 'Are you sure?' } %></td>
+      </li>
+    <% end %>
+  <% end %>
+</div>

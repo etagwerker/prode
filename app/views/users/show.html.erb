@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @user.name %>
+</p>
+
+<p>
+  <strong>Omniauth provider:</strong>
+  <%= @user.omniauth_provider %>
+</p>
+
+<p>
+  <strong>Omniauth hash:</strong>
+  <%= @user.omniauth_hash %>
+</p>
+
+<p>
+  <strong>Omniauth uid:</strong>
+  <%= @user.omniauth_uid %>
+</p>
+
+<p>
+  <strong>Profile image url:</strong>
+  <%= @user.profile_image_url %>
+</p>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>
