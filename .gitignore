@@ -24,3 +24,6 @@ config/database.yml
 
 # RSpec
 .rspec
+
+# Environment
+.env
